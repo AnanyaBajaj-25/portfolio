@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Ananya Bajaj</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav>
+        <a href="../">Home</a>
+        <a href="../projects/">Projects</a>
+        <a href="../resume/">Resume</a>
+        <a href="../contact/">Contact</a>
+        <a href="https://github.com/AnanyaBajaj-25" target="_blank">GitHub</a>
+    </nav>
+
+    <h1>Ananya Bajaj</h1>
+    <p>
+        <a href="https://www.linkedin.com/in/ananya-bajaj-37268b325/" target="_blank">
+            <img src="../images/AnanyaLinkedIn.jpeg" alt="LinkedIn" width="30">
+        </a>
+        <a href="https://github.com/AnanyaBajaj-25" target="_blank">
+            <img src="../images/AnanyaGithub.jpeg" alt="GitHub" width="30">
+        </a>
+    </p>
+
+    <section>
+        <h2>Education</h2>
+        <article>
+            <header>
+                <h3>University of California, San Diego</h3>
+                <p>B.S. in Data Science · La Jolla, CA · Expected <time datetime="2028-06">June 2028</time></p>
+            </header>
+            <p><strong>Relevant Courses:</strong> Practice & Application of Data Science, Theoretical Foundations of Data Science, Data Structures & Algorithms for Data Science, Graph Theory, Data Management, Statistical Methods, Linear Algebra</p>
+        </article>
+    </section>
+
+    <section>
+        <h2>Experience</h2>
+
+        <article>
+            <header>
+                <img src="../images/AnanyaSnapLife.jpeg" alt="SNAP Life Sciences logo" width="50">
+                <h3>AI & Full Stack Development Intern, SNAP Life Sciences</h3>
+                <p>Remote · <time datetime="2026-07">Jul. 2026</time> – Present</p>
+            </header>
+            <ul>
+                <li>Sourced new financial data for 11,000+ companies via the SEC EDGAR API and an LLM-driven web scraping pipeline, then cleaned and imputed missing values using derived financial ratios to improve a drug-valuation ML model.</li>
+                <li>Redesigned the PostgreSQL schema for revenue tables by establishing primary and foreign key relationships across company and financial entities, enabling reliable joins and supporting new financial fields for the ML training pipeline.</li>
+                <li>Salvaged and migrated 300,000+ legacy financial records by deduplicating entries, converting web-scraped text fields into standardized numeric types, and loading the cleaned data into the redesigned schema via SQL and psycopg2, while provisioning an AWS EC2 instance to host the database.</li>
+            </ul>
+        </article>
+
+        <article>
+            <header>
+                <img src="../images/AnanyaColibri.jpeg" alt="Colibri Digital Marketing logo" width="50">
+                <h3>Data Analyst Intern, Colibri Digital Marketing</h3>
+                <p>Remote · <time datetime="2023-06">Jun. 2023</time> – <time datetime="2023-08">Aug. 2023</time></p>
+            </header>
+            <ul>
+                <li>Improved reporting accuracy by 20% by analyzing and processing large, multi-source datasets using Python (NumPy, pandas) and spreadsheets.</li>
+                <li>Uncovered key patterns and trends through data cleaning, transformation, and aggregation of internal marketing and performance datasets.</li>
+                <li>Authored a Google Analytics article for the company blog, translating technical insights into clear takeaways for a non-technical audience.</li>
+            </ul>
+        </article>
+    </section>
+
+    <section>
+        <h2>Projects</h2>
+
+        <article>
+            <header>
+                <h3>Green Plate Value Engine</h3>
+                <p>Python, Streamlit, Google Places API, scikit-learn, PyDeck · <time datetime="2026-06">Jun. 2026</time></p>
+            </header>
+            <ul>
+                <li>Built a full-stack web app that discovers and ranks vegetarian-friendly restaurants by neighborhood, with an interactive, color-coded PyDeck map.</li>
+                <li>Designed an interpretable value-scoring heuristic that boosts Google star ratings using keyword-based sentiment signals from review text.</li>
+                <li>Flagged anomalous listings (e.g., very high ratings with very few reviews) using an Isolation Forest model.</li>
+            </ul>
+        </article>
+
+        <article>
+            <header>
+                <h3>Are Explicit Tracks More Popular?</h3>
+                <p>Python, Pandas, scikit-learn, Statistical Testing · <time datetime="2026-03">Mar. 2026</time></p>
+            </header>
+            <ul>
+                <li>Found that explicit tracks have a statistically significant 5.06-point higher mean popularity (p &lt; 0.001) via a one-tailed permutation test across 5,505 Spotify tracks.</li>
+                <li>Built a Random Forest classifier that improved F1-score by 26.8% (0.332 → 0.421) over a baseline Decision Tree using feature engineering and GridSearchCV.</li>
+                <li>Uncovered a statistically significant 0.262 precision gap (p = 0.008) between explicit and non-explicit predictions when testing model fairness.</li>
+            </ul>
+        </article>
+    </section>
+
+    <section>
+        <h2>Technical Skills</h2>
+        <ul>
+            <li><strong>Languages & Tools:</strong> Python, Java, SQL, R, Git, GitHub Actions, AWS (EC2), GCP, BigQuery</li>
+            <li><strong>Libraries & Frameworks:</strong> Pandas, NumPy, scikit-learn, Matplotlib, Seaborn, LLMs, Prompt Engineering, RAG, DSPy</li>
+            <li><strong>Other:</strong> MySQL, SQLite, PostgreSQL, ETL Pipelines, REST APIs, Random Forest, XGBoost, Gradient Boosting, Isolation Forest, Data Modeling, Excel, Tableau, HTML, Bash</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Certifications</h2>
+        <ul>
+            <li>Google Cloud Digital Leader</li>
+        </ul>
+    </section>
+</body>
+</html>
