@@ -17,50 +17,52 @@
 
     <h1>Projects</h1>
 
-    <article>
-        <h2>Green Plate Value Engine</h2>
-        <p><time datetime="2026-06">June 2026</time> · Python, Streamlit, Google Places API, scikit-learn, PyDeck</p>
-        <p>A web app for finding vegetarian-friendly restaurants. Enter a location and it pulls nearby restaurants from the Google Places API, then ranks them with a value score that combines each restaurant's Google rating with plant-based keywords found in its reviews and editorial summaries.</p>
-        <ul>
-            <li>Interactive map with color-coded restaurant pins</li>
-            <li>Neighborhood summaries showing typical prices and top picks</li>
-            <li>Isolation Forest anomaly detection that flags suspicious listings, like very high ratings with very few reviews</li>
-            <li>Results you can sort by value score, rating, number of reviews, or price</li>
-        </ul>
-        <p>
-            <a href="https://green-plate-value-engine-hfkubkoqdb8kz7lmrjamqt.streamlit.app/" target="_blank">Live demo</a> ·
-            <a href="https://github.com/AnanyaBajaj-25/Green-Plate-Value-Engine" target="_blank">GitHub</a>
-        </p>
-    </article>
+    <div class="projects">
+        <article>
+            <h2>Green Plate Value Engine</h2>
+            <p><time datetime="2026-06">June 2026</time> · Python, Streamlit, Google Places API, scikit-learn, PyDeck</p>
+            <p>A web app for finding vegetarian-friendly restaurants. Enter a location and it pulls nearby restaurants from the Google Places API, then ranks them with a value score that combines each restaurant's Google rating with plant-based keywords found in its reviews and editorial summaries.</p>
+            <ul>
+                <li>Interactive map with color-coded restaurant pins</li>
+                <li>Neighborhood summaries showing typical prices and top picks</li>
+                <li>Isolation Forest anomaly detection that flags suspicious listings, like very high ratings with very few reviews</li>
+                <li>Results you can sort by value score, rating, number of reviews, or price</li>
+            </ul>
+            <p>
+                <a href="https://green-plate-value-engine-hfkubkoqdb8kz7lmrjamqt.streamlit.app/" target="_blank">Live demo</a> ·
+                <a href="https://github.com/AnanyaBajaj-25/Green-Plate-Value-Engine" target="_blank">GitHub</a>
+            </p>
+        </article>
 
-    <article>
-        <h2>Are Explicit Tracks More Popular?</h2>
-        <p><time datetime="2026-03">March 2026</time> · Python, Pandas, scikit-learn, Statistical Testing</p>
-        <p>An analysis of 5,505 Spotify tracks across five genres, testing whether explicit songs are more popular than non-explicit ones.</p>
-        <ul>
-            <li>A permutation test found explicit tracks score 5.06 points higher in popularity on average (p &lt; 0.001)</li>
-            <li>A Random Forest model predicting popularity reached an F1-score of 0.421, up from 0.332 for the baseline</li>
-            <li>A fairness check found the model was much more precise for explicit tracks (0.562) than non-explicit ones (0.301)</li>
-        </ul>
-        <p>
-            <a href="https://ananyabajaj-25.github.io/DSC80-Spotify-project/" target="_blank">Read the full report</a> ·
-            <a href="https://github.com/AnanyaBajaj-25/DSC80-Spotify-project" target="_blank">GitHub</a>
-        </p>
-    </article>
+        <article>
+            <h2>Are Explicit Tracks More Popular?</h2>
+            <p><time datetime="2026-03">March 2026</time> · Python, Pandas, scikit-learn, Statistical Testing</p>
+            <p>An analysis of 5,505 Spotify tracks across five genres, testing whether explicit songs are more popular than non-explicit ones. The project starts with a hypothesis test to see if the popularity gap is real or just chance, then builds a machine learning model that predicts a track's popularity from its features. Finally, it checks whether that model works equally well for explicit and non-explicit songs, or whether it is biased toward one group.</p>
+            <ul>
+                <li>A permutation test found explicit tracks score 5.06 points higher in popularity on average (p &lt; 0.001)</li>
+                <li>A Random Forest model predicting popularity reached an F1-score of 0.421, up from 0.332 for the baseline</li>
+                <li>A fairness check found the model was much more precise for explicit tracks (0.562) than non-explicit ones (0.301)</li>
+            </ul>
+            <p>
+                <a href="https://ananyabajaj-25.github.io/DSC80-Spotify-project/" target="_blank">Read the full report</a> ·
+                <a href="https://github.com/AnanyaBajaj-25/DSC80-Spotify-project" target="_blank">GitHub</a>
+            </p>
+        </article>
 
-    <article>
-        <h2>Traveler Insight CLI</h2>
-        <p>Python, DSPy, OpenAI API (gpt-4o-mini), Wikipedia API</p>
-        <p>A command-line tool that helps travelers get to know a destination before they go. You type in a place, and it pulls live Wikipedia articles about it, then uses an LLM to turn them into a short cultural briefing.</p>
-        <ul>
-            <li>Each briefing has seven sections: cultural etiquette, language and communication, food and dining norms, festivals and holidays, religion and spiritual sites, heritage and monuments, and conversation starters</li>
-            <li>Uses DSPy to structure the LLM prompts, so every briefing follows the same format</li>
-            <li>Handles ambiguous place names by detecting when a search matches multiple Wikipedia articles</li>
-            <li>Lets you look up multiple destinations in one session</li>
-        </ul>
-        <p>
-            <a href="https://github.com/AnanyaBajaj-25/Traveler-Insight-CLI" target="_blank">GitHub</a>
-        </p>
-    </article>
+        <article>
+            <h2>Traveler Insight CLI</h2>
+            <p>Python, DSPy, OpenAI API (gpt-4o-mini), Wikipedia API</p>
+            <p>A command-line tool that helps travelers get to know a destination before they go. You type in a place, and it pulls live Wikipedia articles about it, then uses an LLM to turn them into a short cultural briefing.</p>
+            <ul>
+                <li>Each briefing has seven sections: cultural etiquette, language and communication, food and dining norms, festivals and holidays, religion and spiritual sites, heritage and monuments, and conversation starters</li>
+                <li>Uses DSPy to structure the LLM prompts, so every briefing follows the same format</li>
+                <li>Handles ambiguous place names by detecting when a search matches multiple Wikipedia articles</li>
+                <li>Lets you look up multiple destinations in one session</li>
+            </ul>
+            <p>
+                <a href="https://github.com/AnanyaBajaj-25/Traveler-Insight-CLI" target="_blank">GitHub</a>
+            </p>
+        </article>
+    </div>
 </body>
 </html>

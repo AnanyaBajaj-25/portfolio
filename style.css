@@ -12,6 +12,15 @@ body {
     margin-inline: auto;
   }
 
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+h1 {
+    font-size: 400%;
+  }
+
 nav {
     display: flex;
     margin-bottom: 1em;
@@ -34,4 +43,54 @@ nav a.current {
 nav a:hover {
     border-bottom: 0.4em solid var(--color-accent);
     padding-bottom: 0.1em;
+  }
+
+input,
+textarea,
+button {
+    font: inherit;
+  }
+
+form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1em;
+  }
+
+form label {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
+  }
+
+form button {
+    grid-column: 1 / -1;
+  }
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    /* 1em between rows, 2em between columns */
+    gap: 1em 2em;
+  }
+
+.projects article {
+    display: grid;
+    grid-template-rows: subgrid;
+    /* One row per child: title, date/tools, description, highlights, links */
+    grid-row: span 5;
+  }
+
+.projects h2 {
+    margin: 0;
+  }
+
+.projects p,
+.projects ul {
+    margin: 0;
+  }
+
+.projects ul {
+    /* Just enough room for the bullets, so they line up with the text above */
+    padding-left: 1.2em;
   }
