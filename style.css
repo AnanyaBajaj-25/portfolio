@@ -1,17 +1,18 @@
 html {
     --color-accent: oklch(65% 50% 0);
-    --color-border: oklch(80% 3% 200);
-    --color-muted: oklch(50% 3% 200);
-    --color-card: oklch(97% 1% 200);
     accent-color: var(--color-accent);
+    /* Always reserve room for the scrollbar so the page doesn't shift
+       sideways between short and long pages */
     scrollbar-gutter: stable;
   }
 
 body {
+    /* Set line height to 1.5 times the font size
+       and use the OS's UI font as the website font
+     */
     font: 100%/1.5 system-ui;
     max-width: 100ch;
     margin-inline: auto;
-    padding-inline: 1em;
   }
 
 h1, h2, h3, h4, h5, h6 {
@@ -21,35 +22,12 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-size: 400%;
-    letter-spacing: -0.02em;
-  }
-
-a {
-    color: var(--color-accent);
-    text-underline-offset: 0.2em;
-  }
-
-a:hover {
-    text-decoration-thickness: 2px;
-  }
-
-a:has(> img) {
-    text-decoration: none;
-  }
-
-li::marker {
-    color: var(--color-accent);
-  }
-
-::selection {
-    background: var(--color-accent);
-    color: white;
   }
 
 nav {
     display: flex;
     margin-bottom: 1em;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid oklch(80% 3% 200);
   }
 
 nav a {
@@ -58,17 +36,16 @@ nav a {
     color: inherit;
     text-align: center;
     padding: 0.5em;
-    padding-bottom: 0.1em;
-    border-bottom: 0.4em solid transparent;
-    transition: border-color 0.2s;
   }
 
 nav a.current {
-    border-bottom-color: var(--color-border);
+    border-bottom: 0.4em solid oklch(80% 3% 200);
+    padding-bottom: 0.1em;
   }
 
 nav a:hover {
-    border-bottom-color: var(--color-accent);
+    border-bottom: 0.4em solid var(--color-accent);
+    padding-bottom: 0.1em;
   }
 
 input,
@@ -87,62 +64,23 @@ form label {
     display: grid;
     grid-template-columns: subgrid;
     grid-column: 1 / -1;
-    align-items: baseline;
-  }
-
-form input,
-form textarea {
-    padding: 0.5em;
-    border: 1px solid var(--color-border);
-    border-radius: 0.4em;
-  }
-
-form input:focus,
-form textarea:focus {
-    outline: 2px solid var(--color-accent);
-    border-color: transparent;
-  }
-
-form textarea {
-    min-height: 8em;
-    resize: vertical;
   }
 
 form button {
     grid-column: 1 / -1;
-    padding: 0.6em;
-    border: none;
-    border-radius: 0.4em;
-    background: var(--color-accent);
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: filter 0.2s;
-  }
-
-form button:hover {
-    filter: brightness(0.9);
   }
 
 .projects {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-    gap: 1em;
+    /* 1em between rows, 2em between columns */
+    gap: 1em 2em;
   }
 
 .projects article {
     display: grid;
     grid-template-rows: subgrid;
     grid-row: span 5;
-    padding: 1.25em;
-    border-radius: 0.75em;
-    background: var(--color-card);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-.projects article:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px oklch(0% 0 0 / 12%);
   }
 
 .projects h2 {
@@ -154,34 +92,7 @@ form button:hover {
     margin: 0;
   }
 
-.projects article > p:first-of-type {
-    color: var(--color-muted);
-    font-size: 90%;
-  }
-
 .projects ul {
+    /* Just enough room for the bullets, so they line up with the text above */
     padding-left: 1.2em;
-  }
-
-.photos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1em;
-  }
-
-.photos img {
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    border-radius: 0.5em;
-  }
-
-section > h2 {
-    margin-top: 1.5em;
-    padding-bottom: 0.3em;
-    border-bottom: 2px solid var(--color-accent);
-  }
-
-article header p {
-    color: var(--color-muted);
   }
