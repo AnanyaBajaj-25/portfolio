@@ -143,7 +143,7 @@ form button:hover {
 .projects article {
     display: grid;
     grid-template-rows: subgrid;
-    grid-row: span 5;
+    grid-row: span 6;
     padding: 1.25em;
     border-radius: 0.75em;
     background: var(--color-card);
@@ -155,8 +155,16 @@ form button:hover {
     box-shadow: 0 8px 24px oklch(0% 0 0 / 12%);
   }
 
-.projects h2 {
+.projects :is(h1, h2, h3, h4, h5, h6) {
     margin: 0;
+  }
+
+.projects img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 0.5em;
+    background: var(--color-border);
   }
 
 .projects p,
@@ -194,4 +202,38 @@ section > h2 {
 
 article header p {
     color: var(--color-muted);
+  }
+
+#profile-stats {
+    margin-block: 2em;
+    padding: 1.25em;
+    border-radius: 0.75em;
+    background: var(--color-card);
+  }
+
+#profile-stats h2 {
+    margin: 0 0 0.75em;
+  }
+
+#profile-stats dl {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0;
+    text-align: center;
+  }
+
+#profile-stats dt {
+    grid-row: 1;
+    color: var(--color-muted);
+    font-size: 85%;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+#profile-stats dd {
+    grid-row: 2;
+    margin: 0;
+    font-size: 250%;
+    font-weight: 700;
+    color: var(--color-accent);
   }

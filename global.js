@@ -88,3 +88,77 @@ form?.addEventListener('submit', function (event) {
   let url = form.action + '?' + params.join('&');
   location.href = url;
 });
+
+export async function fetchJSON(url) {
+  try {
+    // Fetch the JSON file from the given URL
+    const response = await fetch(url);
+    console.log(response);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
+const HEADING_LEVELS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+
+function formatDate(date) {
+  if (!date) return '';
+  let [year, month] = date.split('-').map(Number);
+  return new Date(year, month - 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+}
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  if (!(containerElement instanceof Element)) {
+    console.error('renderProjects: containerElement is not a valid element', containerElement);
+    return;
+  }
+
+  if (!HEADING_LEVELS.includes(headingLevel)) {
+    console.warn(`renderProjects: "${headingLevel}" is not a heading, using h2 instead`);
+    headingLevel = 'h2';
+  }
+
+  containerElement.innerHTML = '';
+
+  if (!Array.isArray(projects) || projects.length === 0) {
+    containerElement.innerHTML = '<p>No projects to show yet.</p>';
+    return;
+  }
+
+  for (let project of projects) {
+    const article = document.createElement('article');
+
+    let when = project.date ?? project.year;
+    let meta = [
+      when ? `<time datetime="${when}">${project.date ? formatDate(project.date) : project.year}</time>` : '',
+      project.tools ?? '',
+    ].filter(Boolean).join(' · ');
+
+    let highlights = (project.highlights ?? []).map((h) => `<li>${h}</li>`).join('');
+    let links = (project.links ?? [])
+      .map((l) => `<a href="${l.url}" target="_blank">${l.label}</a>`)
+      .join(' · ');
+
+    article.innerHTML = `
+      <${headingLevel}>${project.title ?? 'Untitled project'}</${headingLevel}>
+      <img src="${project.image ?? 'https://vis-society.github.io/labs/2/images/empty.svg'}" alt="${project.title ?? ''}">
+      <p>${meta}</p>
+      <p>${project.description ?? ''}</p>
+      <ul>${highlights}</ul>
+      <p>${links}</p>
+    `;
+
+    containerElement.appendChild(article);
+  }
+}
+
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
