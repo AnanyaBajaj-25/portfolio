@@ -136,10 +136,9 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     const article = document.createElement('article');
 
     let when = project.date ?? project.year;
-    let meta = [
-      when ? `<time datetime="${when}">${project.date ? formatDate(project.date) : project.year}</time>` : '',
-      project.tools ?? '',
-    ].filter(Boolean).join(' · ');
+    let year = when
+      ? `<p class="project-year"><time datetime="${when}">c. ${project.year ?? formatDate(project.date)}</time></p>`
+      : '';
 
     let highlights = (project.highlights ?? []).map((h) => `<li>${h}</li>`).join('');
     let links = (project.links ?? [])
@@ -149,8 +148,11 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     article.innerHTML = `
       <${headingLevel}>${project.title ?? 'Untitled project'}</${headingLevel}>
       <img src="${project.image ?? 'https://vis-society.github.io/labs/2/images/empty.svg'}" alt="${project.title ?? ''}">
-      <p>${meta}</p>
-      <p>${project.description ?? ''}</p>
+      <p>${project.tools ?? ''}</p>
+      <div>
+        <p>${project.description ?? ''}</p>
+        ${year}
+      </div>
       <ul>${highlights}</ul>
       <p>${links}</p>
     `;
