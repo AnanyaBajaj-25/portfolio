@@ -1,5 +1,5 @@
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
-import { fetchJSON, renderProjects } from '../global.js?v=8';
+import { fetchJSON, renderProjects } from '../global.js?v=9';
 
 const projects = await fetchJSON('../lib/projects.json');
 
@@ -10,10 +10,8 @@ const count = projects?.length ?? 0;
 projectsTitle.textContent = `${count} ${count === 1 ? 'Project' : 'Projects'}`;
 
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
-// Color by year (not by index) so a year keeps its color when the search changes the slices
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
-// Both filters live here, so every render applies the search AND the selected year
 let query = '';
 let selectedYear = null;
 
@@ -71,7 +69,6 @@ function renderPieChart(projectsGiven) {
 function render() {
   let searchedProjects = projects.filter(matchesQuery);
 
-  // If the search removed every project from the selected year, drop the selection
   if (!searchedProjects.some((project) => project.year === selectedYear)) {
     selectedYear = null;
   }
@@ -81,7 +78,6 @@ function render() {
     : searchedProjects.filter((project) => project.year === selectedYear);
 
   renderProjects(visibleProjects, projectsContainer, 'h2');
-  // The pie shows the searched projects, so the other years stay clickable after selecting one
   renderPieChart(searchedProjects);
 }
 

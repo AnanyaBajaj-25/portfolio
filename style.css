@@ -212,25 +212,29 @@ article header p {
     color: var(--color-muted);
   }
 
-#profile-stats {
+#profile-stats,
+#stats {
     margin-block: 2em;
     padding: 1.25em;
     border-radius: 0.75em;
     background: var(--color-card);
   }
 
-#profile-stats h2 {
+#profile-stats h2,
+#stats h2 {
     margin: 0 0 0.75em;
   }
 
-#profile-stats dl {
+#profile-stats dl,
+.stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     margin: 0;
     text-align: center;
   }
 
-#profile-stats dt {
+#profile-stats dt,
+.stats dt {
     grid-row: 1;
     color: var(--color-muted);
     font-size: 85%;
@@ -238,7 +242,8 @@ article header p {
     letter-spacing: 0.05em;
   }
 
-#profile-stats dd {
+#profile-stats dd,
+.stats dd {
     grid-row: 2;
     margin: 0;
     font-size: 250%;
@@ -324,4 +329,99 @@ path.selected {
 
 .legend-item.selected {
     font-weight: 600;
+  }
+
+/* Three columns, two rows: the second three stats move to rows 3 and 4 */
+.stats {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 0.25em;
+  }
+
+.stats dt:nth-of-type(n + 4) {
+    grid-row: 3;
+    margin-top: 1em;
+  }
+
+.stats dd:nth-of-type(n + 4) {
+    grid-row: 4;
+  }
+
+.stats dd {
+    font-size: clamp(1.25rem, 5vw, 2.5rem);
+  }
+
+.stats .capitalize {
+    text-transform: capitalize;
+  }
+
+.gridlines {
+    opacity: 0.15;
+  }
+
+dl.info {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.25em 1em;
+    margin: 0;
+    transition-duration: 500ms;
+    transition-property: opacity, visibility;
+  }
+
+dl.info[hidden]:not(:hover, :focus-within) {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+dl.info dt {
+    grid-column: 1;
+    color: var(--color-muted);
+  }
+
+dl.info dd {
+    grid-column: 2;
+    margin: 0;
+  }
+
+.tooltip {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    padding: 0.75em 1em;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5em;
+    background-color: color-mix(in oklch, canvas 80%, transparent);
+    box-shadow: 0 2px 8px oklch(0% 0 0 / 25%);
+    backdrop-filter: blur(6px);
+  }
+
+circle {
+    transition: 200ms;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+
+circle:hover {
+    transform: scale(1.5);
+  }
+
+@keyframes marching-ants {
+    to {
+      stroke-dashoffset: -8; /* 5 + 3 */
+    }
+  }
+
+.selection {
+    fill-opacity: 0.1;
+    stroke: currentColor;
+    stroke-opacity: 0.7;
+    stroke-dasharray: 5 3;
+    animation: marching-ants 2s linear infinite;
+  }
+
+circle.selected {
+    fill: #ff6b6b;
+  }
+
+#language-breakdown dd {
+    font-size: 1.25rem;
   }
